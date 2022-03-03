@@ -27,8 +27,8 @@ server {
     server_tokens off;
 
     # SSL Cert
-    ssl_certificate           /etc/nginx/certs/localhost.crt;
-    ssl_certificate_key       /etc/nginx/certs/localhost.key;
+    ssl_certificate           ${SSL_CERT_FILE};
+    ssl_certificate_key       ${SSL_KEY_FILE};
     ssl_session_cache         shared:SSL:1m;  
     ssl_prefer_server_ciphers on;
 

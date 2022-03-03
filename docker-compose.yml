@@ -16,9 +16,12 @@ services:
       - '80:80'
       - '443:443'
     volumes:
-      - ./nginx/conf:/etc/nginx/conf.d
+      - ./nginx/templates:/etc/nginx/templates
       - ./nginx/certs:/etc/nginx/certs
     restart: always
+    environment:
+      - SSL_CERT_FILE=/etc/nginx/certs/localhost.crt
+      - SSL_KEY_FILE=/etc/nginx/certs/localhost.key
 
 networks:
   its-nodedev1:
