@@ -8,8 +8,6 @@ services:
       restart_policy:
         condition: on-failure
     image: carletonuniversity/cutheme-headless:latest
-    expose:
-      - 3000
   nginx:
     deploy:
       mode: replicated
@@ -25,7 +23,6 @@ services:
     volumes:
       - ./nginx/templates:/etc/nginx/templates
       - ./nginx/certs:/etc/nginx/certs
-    restart: always
     environment:
       - SSL_CERT_FILE=/etc/nginx/certs/localhost.crt
       - SSL_KEY_FILE=/etc/nginx/certs/localhost.key
