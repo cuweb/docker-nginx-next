@@ -11,11 +11,6 @@ services:
     expose:
       - 3000
   nginx:
-    deploy:
-      mode: replicated
-      replicas: 2
-      restart_policy:
-        condition: on-failure
     image: nginx:latest
     ports:
       - '80:80'
